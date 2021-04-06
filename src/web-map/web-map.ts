@@ -9,6 +9,11 @@ export interface IMap extends LeafletMap {
   $owner: WebMap
 }
 
+/** WebMap配置项 */
+export interface IWebMapOptions extends MapOptions {
+  _: void
+}
+
 /** WebMap类 */
 export class WebMap extends Observer<{
   'loaded': void
