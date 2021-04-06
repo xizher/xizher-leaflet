@@ -12,6 +12,8 @@ export class WebMap extends Observer {
         this._options = {
             center: [0, 0],
             zoom: 1,
+            attributionControl: false,
+            zoomControl: false,
         };
         this._targetDiv = targetDiv;
         baseUtils.$extend(true, this._options, options);

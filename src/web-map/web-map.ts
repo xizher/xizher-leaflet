@@ -38,6 +38,8 @@ export class WebMap extends Observer<{
   private _options: MapOptions = {
     center: [0, 0],
     zoom: 1,
+    attributionControl: false,
+    zoomControl: false,
   }
 
   //#endregion
