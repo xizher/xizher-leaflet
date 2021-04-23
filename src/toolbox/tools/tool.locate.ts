@@ -1,4 +1,5 @@
 import ToolBase, { IToolBaseEvent, OnDoneParams, OnExecutingParams } from '../tool.base'
+import { Marker, marker } from 'leaflet'
 
 /** 定位工具类 */
 export class ToolLocate extends ToolBase<IToolBaseEvent<GeolocationPosition>> {
@@ -17,6 +18,8 @@ export class ToolLocate extends ToolBase<IToolBaseEvent<GeolocationPosition>> {
 
   public zoomDuration = 3
 
+  public locationPoint: Marker
+
   //#endregion
 
   //#region 保护方法
@@ -28,6 +31,9 @@ export class ToolLocate extends ToolBase<IToolBaseEvent<GeolocationPosition>> {
       evt => {
         if (this.zoomToLocationWhenDone) {
           const { longitude, latitude } = evt.coords
+          this.locationPoint && this.webMap_.map.removeLayer(this.locationPoint)
+          this.locationPoint = marker([latitude, longitude])
+          this.locationPoint.addTo(this.webMap_.map)
           this.webMap_.map.flyTo([latitude, longitude], this.zoomLevel, { duration: this.zoomDuration })
         }
         this.fire('done', {
