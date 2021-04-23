@@ -3,6 +3,7 @@
   <div :id="id"></div>
   <div v-if="loaded">
     <BasemapControl />
+    <ToolBoxControl />
   </div>
 </div>
 </template>
@@ -11,9 +12,11 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import { WebMap, MapCursor, Basemap } from '../../dist'
 import BasemapControl from './components/BasemapControl.vue'
+import ToolBoxControl from './components/ToolBoxControl.vue'
 export default {
   components: {
     BasemapControl,
+    ToolBoxControl,
   },
   name: 'test',
   setup () {

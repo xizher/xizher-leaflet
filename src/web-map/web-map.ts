@@ -3,6 +3,9 @@ import { baseUtils } from '@xizher/js-utils'
 import { Map as LeafletMap, MapOptions } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import WebMapPlugin from '../web-map-plugin/web-map-plugin'
+import Basemap from '../plugins/basemap/basemap'
+import MapCursor from '../plugins/map-cursor/map-cursor'
+import MapElementDisplay from '../plugins/map-element-display/map-element-display'
 
 /** 地图对象接口 */
 export interface IMap extends LeafletMap {
@@ -21,8 +24,9 @@ export class WebMap extends Observer<{
 
   //#region 公有属性（插件对象）
 
-  // basemap?: Basemap
-  // mapCursor?: MapCursor
+  basemap?: Basemap
+  mapCursor?: MapCursor
+  mapElementDisplay?: MapElementDisplay
 
   //#endregion
 
